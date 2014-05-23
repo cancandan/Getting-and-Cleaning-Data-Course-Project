@@ -16,19 +16,19 @@ Getting-and-Cleaning-Data-Course-Project
     
     all<-rbind(train,test)  
 
-## Giving names to columns
+### Giving names to columns
 
     features<-read.table("UCI HAR Dataset/features.txt")  
     names(all)<-features[,2]  
     names(all)[562]<-"activity_id"  
     names(all)[563]<-"subject"  
 
-## Extracts only the measurements on the mean and standard deviation for each measurement. 
+## 2.Extracts only the measurements on the mean and standard deviation for each measurement. 
 
     mean_and_std_indexes<-grepl(".*[Mm]ean.*|.*std.*",names(all))  
     mean_and_std_extract<-all[mean_and_std_indexes]  
 
-## Data without the mean and std columns 
+### Data without the mean and std columns 
 
     data_without_mean_and_std<-all[!mean_and_std_indexes]  
 
@@ -38,7 +38,7 @@ Getting-and-Cleaning-Data-Course-Project
     names(activity_labels)<-c("activity_id","activity")  
     data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)  
 
-## after the merge we have both the activity_id and activity columns so we get rid of activity_id column
+### after the merge we have both the activity_id and activity columns so we get rid of activity_id column
 
     data_with_descriptive_activity_names<-data_with_descriptive_activity_names[,names(data_with_descriptive_activity_names)!="activity_id"]  
 
