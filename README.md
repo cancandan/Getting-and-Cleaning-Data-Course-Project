@@ -42,7 +42,7 @@ Getting-and-Cleaning-Data-Course-Project
 ### Prepare the activity_labels table by giving it column names, so that we can join using activity_id  
 
     names(activity_labels)<-c("activity_id","activity")  
-    data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)  
+    data_with_descriptive_activity_names<-merge(mean_and_std_extract,activity_labels)  
 
 ### after the merge we have both the activity_id and activity columns so we get rid of activity_id column
 
