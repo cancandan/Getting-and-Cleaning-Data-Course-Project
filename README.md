@@ -14,10 +14,12 @@ Read in data
     tests<-read.table("UCI HAR Dataset/test/subject_test.txt")  
 
 Column bind x, y and subject data for both train and test  
+
     train<-cbind(trainx, trainy, trains)  
     test<-cbind(testx, testy, tests)  
 
-Row bind train and test to get all of the data      
+Row bind train and test to get all of the data  
+
     all<-rbind(train,test)  
 
 ### Giving names to columns
@@ -32,13 +34,16 @@ Row bind train and test to get all of the data
     mean_and_std_indexes<-grepl(".*[Mm]ean.*|.*std.*",names(all))  
     mean_and_std_extract<-all[mean_and_std_indexes]  
 
-### Data without the mean and std columns 
+### Data without the mean and std columns, this is what is asked for the assignment
 
     data_without_mean_and_std<-all[!mean_and_std_indexes]  
 
 ## 3.Uses descriptive activity names to name the activities in the data set
 
     activity_labels<-read.table("UCI HAR Dataset/activity_labels.txt")  
+
+Prepare the activity_labels table by giving it column names, so that we can join using activity_id  
+
     names(activity_labels)<-c("activity_id","activity")  
     data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)  
 
