@@ -38,16 +38,17 @@ Getting-and-Cleaning-Data-Course-Project
     names(activity_labels)<-c("activity_id","activity")  
     data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)  
 
-## now that we have both the activity_id and activity columns we get rid of activity_id column
+## after the merge we have both the activity_id and activity columns so we get rid of activity_id column
 
     data_with_descriptive_activity_names<-data_with_descriptive_activity_names[,names(data_with_descriptive_activity_names)!="activity_id"]  
 
 ## 4.Appropriately labels the data set with descriptive activity names.
-### Following the course video the column names satisfy the following criteria
-### All lower case when possible
-### Descriptive (Diagnosis versus Dx)
-### Not duplicated
-### Not have underscores or dots or white spaces
+
+Following the course video the column names satisfy the following criteria  
+All lower case when possible  
+Descriptive (Diagnosis versus Dx)  
+Not duplicated  
+Not have underscores or dots or white spaces  
 
     names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive_activity_names))  
 
