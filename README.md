@@ -3,18 +3,18 @@ Getting-and-Cleaning-Data-Course-Project
 
 ## 1.Merges the training and the test sets to create one data set.
 
-trainx<-read.table("UCI HAR Dataset/train/X_train.txt")  
-trainy<-read.table("UCI HAR Dataset/train/Y_train.txt")  
-trains<-read.table("UCI HAR Dataset/train/subject_train.txt")  
-
-testx<-read.table("UCI HAR Dataset/test/X_test.txt")  
-testy<-read.table("UCI HAR Dataset/test/Y_test.txt")  
-tests<-read.table("UCI HAR Dataset/test/subject_test.txt")  
-
-train<-cbind(trainx, trainy, trains)  
-test<-cbind(testx, testy, tests)  
-
-all<-rbind(train,test)  
+    trainx<-read.table("UCI HAR Dataset/train/X_train.txt")  
+    trainy<-read.table("UCI HAR Dataset/train/Y_train.txt")  
+    trains<-read.table("UCI HAR Dataset/train/subject_train.txt")  
+    
+    testx<-read.table("UCI HAR Dataset/test/X_test.txt")  
+    testy<-read.table("UCI HAR Dataset/test/Y_test.txt")  
+    tests<-read.table("UCI HAR Dataset/test/subject_test.txt")  
+    
+    train<-cbind(trainx, trainy, trains)  
+    test<-cbind(testx, testy, tests)  
+    
+    all<-rbind(train,test)  
 
 ## Giving names to columns
 
