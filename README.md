@@ -18,29 +18,29 @@ all<-rbind(train,test)
 
 ## Giving names to columns
 
-features<-read.table("UCI HAR Dataset/features.txt")
-names(all)<-features[,2]
-names(all)[562]<-"activity_id"
-names(all)[563]<-"subject"
+features<-read.table("UCI HAR Dataset/features.txt")  
+names(all)<-features[,2]  
+names(all)[562]<-"activity_id"  
+names(all)[563]<-"subject"  
 
 ## Extracts only the measurements on the mean and standard deviation for each measurement. 
 
-mean_and_std_indexes<-grepl(".*[Mm]ean.*|.*std.*",names(all))
-mean_and_std_extract<-all[mean_and_std_indexes]
+mean_and_std_indexes<-grepl(".*[Mm]ean.*|.*std.*",names(all))  
+mean_and_std_extract<-all[mean_and_std_indexes]  
 
 ## Data without the mean and std columns 
 
-data_without_mean_and_std<-all[!mean_and_std_indexes]
+data_without_mean_and_std<-all[!mean_and_std_indexes]  
 
 ## 3.Uses descriptive activity names to name the activities in the data set
 
-activity_labels<-read.table("UCI HAR Dataset/activity_labels.txt")
-names(activity_labels)<-c("activity_id","activity")
-data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)
+activity_labels<-read.table("UCI HAR Dataset/activity_labels.txt")  
+names(activity_labels)<-c("activity_id","activity")  
+data_with_descriptive_activity_names<-merge(data_without_mean_and_std,activity_labels)  
 
 ## now that we have both the activity_id and activity columns we get rid of activity_id column
 
-data_with_descriptive_activity_names<-data_with_descriptive_activity_names[,names(data_with_descriptive_activity_names)!="activity_id"]
+data_with_descriptive_activity_names<-data_with_descriptive_activity_names[,names(data_with_descriptive_activity_names)!="activity_id"]  
 
 ## 4.Appropriately labels the data set with descriptive activity names.
 ### Following the course video the column names satisfy the following criteria
@@ -49,9 +49,9 @@ data_with_descriptive_activity_names<-data_with_descriptive_activity_names[,name
 ### Not duplicated
 ### Not have underscores or dots or white spaces
 
-names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive_activity_names))
+names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive_activity_names))  
 
 ## 5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)
-write.table(tidy,"tidy.txt")
+tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)  
+write.table(tidy,"tidy.txt")  
