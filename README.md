@@ -4,6 +4,7 @@ Getting-and-Cleaning-Data-Course-Project
 ## 1.Merges the training and the test sets to create one data set.
 
 Read in data  
+
     trainx<-read.table("UCI HAR Dataset/train/X_train.txt")  
     trainy<-read.table("UCI HAR Dataset/train/Y_train.txt")  
     trains<-read.table("UCI HAR Dataset/train/subject_train.txt")  
