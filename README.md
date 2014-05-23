@@ -65,6 +65,7 @@ Not have underscores or dots or white spaces
 
     tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)  
 
-Append "-mean" to the end of all variables except subject and activity      
+Append "-mean" to the end of all variables except subject and activity  
+
     names(tidy)[!grepl("activity|subject",names(tidy))]<-paste0(names(tidy)[!grepl("activity|subject",names(tidy))],"-mean")
     write.table(tidy,"tidy.txt")  
