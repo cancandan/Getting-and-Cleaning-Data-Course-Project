@@ -1,6 +1,3 @@
-Getting-and-Cleaning-Data-Course-Project
-========================================
-
 # 1.Merges the training and the test sets to create one data set.
 
 trainx<-read.table("UCI HAR Dataset/train/X_train.txt")
@@ -50,4 +47,9 @@ names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive
 # 5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
 tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)
+
+# add -mean to the end of each feature name
+names(tidy)<-paste0(names(tidy),"-mean")
+
+# write data
 write.table(tidy,"tidy.txt")
