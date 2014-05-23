@@ -50,13 +50,13 @@ Getting-and-Cleaning-Data-Course-Project
 
 ## 4.Appropriately labels the data set with descriptive activity names.
 
-### Following the course video the column names satisfy the following criteria  
-### All lower case when possible  
-### Descriptive (Diagnosis versus Dx)  
-### Not duplicated  
-### Not have underscores or dots or white spaces 
+#### Following the course video the column names satisfy the following criteria  
+#### All lower case when possible  
+#### Descriptive (Diagnosis versus Dx)  
+#### Not duplicated  
+#### Not have underscores or dots or white spaces 
 
-### so just lowercasing is enough   
+#### so just lowercasing is enough   
 
     names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive_activity_names))  
 
@@ -64,7 +64,13 @@ Getting-and-Cleaning-Data-Course-Project
 
     tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)  
 
-# Append "-mean" to the end of all variables except subject and activity  
+### Append "-mean" to the end of all variables except subject and activity  
 
     names(tidy)[!grepl("activity|subject",names(tidy))]<-paste0(names(tidy)[!grepl("activity|subject",names(tidy))],"-mean")
-    write.table(tidy,"tidy.txt")  
+    write.table(tidy,"tidy.txt") 
+
+### How the CodeBook.md is created  
+	
+	lines<-paste(names(tidy)[3:87], "is the mean of",names(data_with_descriptive_activity_names[1:85]), "for given subject and activity"," ")
+	write.table(names(tidy),"CodeBook.md",quote=FALSE,col.names=FALSE,row.names=FALSE)
+
