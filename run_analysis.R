@@ -60,7 +60,7 @@ names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive
 
 ## 5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-tidy<-aggregate(. ~ activity+subject,data=data_with_descriptive_activity_names,FUN=mean)  
+tidy<-aggregate(. ~ subject+activity,data=data_with_descriptive_activity_names,FUN=mean)  
 
 # Append "-mean" to the end of all variables except subject and activity 
 names(tidy)[!grepl("activity|subject",names(tidy))]<-paste0(names(tidy)[!grepl("activity|subject",names(tidy))],"-mean")
