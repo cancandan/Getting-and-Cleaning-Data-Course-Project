@@ -30,7 +30,7 @@ Getting-and-Cleaning-Data-Course-Project
     names(all)[563]<-"subject"  
 
 ## 2.Extracts only the measurements on the mean and standard deviation for each measurement.   
-### also keep the subject and activity_id fields in addition to mean std fields.
+### also keep the subject and activity_id fields in addition to mean and std fields.
 
     mean_and_std_indexes<-grepl(".*[Mm]ean.*|.*std.*|subject|activity_id",names(all))    
     mean_and_std_extract<-all[mean_and_std_indexes]  
