@@ -51,12 +51,12 @@ Getting-and-Cleaning-Data-Course-Project
 ## 4.Appropriately labels the data set with descriptive activity names.
 
 #### Following the course video the column names satisfy the following criteria  
-#### All lower case when possible  
-#### Descriptive (Diagnosis versus Dx)  
-#### Not duplicated  
-#### Not have underscores or dots or white spaces  
+> All lower case when possible  
+> Descriptive (Diagnosis versus Dx)  
+> Not duplicated  
+> Not have underscores or dots or white spaces  
 
-#### so just lowercasing is enough   
+#### *so just lowercasing is enough*   
 
     names(data_with_descriptive_activity_names)<-tolower(names(data_with_descriptive_activity_names))  
 
