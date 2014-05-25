@@ -54,7 +54,7 @@ Getting-and-Cleaning-Data-Course-Project
 #### All lower case when possible  
 #### Descriptive (Diagnosis versus Dx)  
 #### Not duplicated  
-#### Not have underscores or dots or white spaces 
+#### Not have underscores or dots or white spaces  
 
 #### so just lowercasing is enough   
 
