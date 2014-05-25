@@ -50,7 +50,7 @@ Getting-and-Cleaning-Data-Course-Project
 
 ## 4.Appropriately labels the data set with descriptive activity names.
 
-#### Following the course video the column names satisfy the following criteria  
+#### Following the course video the column names should satisfy the following criteria  
 > All lower case when possible  
 > Descriptive (Diagnosis versus Dx)  
 > Not duplicated  
